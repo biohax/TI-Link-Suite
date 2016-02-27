@@ -1,0 +1,78 @@
+<head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-git2.js'></script>
+
+<link rel="stylesheet" type="text/css" href="paint.css">
+  <style type='text/css'>
+    td { background: white; cursor: pointer; padding: 15px }
+td.red-cell {
+    background: #F00; /* Or some other color */
+}
+  </style>
+  
+</head>
+<body>
+  
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+
+		$( function() {
+		
+			var down = false;
+
+			createTable(4,6);
+
+			$(document).mousedown(function() {
+				down = true;
+			}).mouseup(function() {
+				down = false;  
+			});
+			
+			
+			$('td').click( function() {
+				$(this).toggleClass("red-cell");
+			});
+			
+			$('td').hover( function() {
+				if(down){
+					//$(this).toggleClass("red-cell");
+					$(this).attr("class","red-cell");
+
+				}
+			});
+			 
+		});
+
+
+	
+	function createTable(cols, rows) {
+		var tableElem, rowElem, colElem;
+
+		tableElem = document.createElement('table');
+
+		for (var i = 0; i < rows; i++) {
+			rowElem = document.createElement('tr');
+
+			for (var j = 0; j < cols; j++) {
+				colElem = document.createElement('td');
+				//colElem.appendChild(document.createTextNode(j + 1));
+				rowElem.appendChild(colElem);
+			}
+
+			tableElem.appendChild(rowElem);
+		}
+
+		document.body.appendChild(tableElem);
+
+    }
+//]]>  
+
+</script>
+
+
+</body>
+
+
+</html>

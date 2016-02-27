@@ -1,0 +1,4 @@
+td { background: white; cursor: pointer; padding:15px;}
+td.cellon {
+    background: black; /* Or some other color */
+}
